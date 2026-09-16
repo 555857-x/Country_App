@@ -12,15 +12,18 @@ class DatePicker : DialogFragment() {
         val calendar = Calendar.getInstance()
 
         val year = calendar.get(Calendar.YEAR)
-        val monthOfYear = calendar.get(Calendar.MONTH)
-        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val listener =
+            requireActivity() as DatePickerDialog.OnDateSetListener
 
         return DatePickerDialog(
-            requireActivity(),
-            requireActivity() as DatePickerDialog.OnDateSetListener,
+            requireContext(),
+            listener,
             year,
-            monthOfYear,
-            dayOfMonth
+            month,
+            day
         )
     }
 }
